@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S0VRZ290vYc=",
+  "dgSpecHash": "taBJFRZACoM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\APP2\\source\\repos\\IdentityAuthentication-Master\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj",
+  "projectFilePath": "C:\\Users\\APP2\\Desktop\\COde\\IdentityAuthentication\\IdentityAuthentication\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\APP2\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\APP2\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

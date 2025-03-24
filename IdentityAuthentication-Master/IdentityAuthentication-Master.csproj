@@ -15,4 +15,11 @@
     <PackageReference Include="System.Diagnostics.Tools" Version="4.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Tables\" />
+    <Folder Include="Models\DTO\" />
+    <Folder Include="Models\Enum\" />
+    <Folder Include="Servies\" />
+  </ItemGroup>
+
 </Project>

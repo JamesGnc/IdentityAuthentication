@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\APP2\\source\\repos\\IdentityAuthentication-Master\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj": {}
+    "C:\\Users\\APP2\\Desktop\\COde\\IdentityAuthentication\\IdentityAuthentication\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj": {}
   },
   "projects": {
-    "C:\\Users\\APP2\\source\\repos\\IdentityAuthentication-Master\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj": {
+    "C:\\Users\\APP2\\Desktop\\COde\\IdentityAuthentication\\IdentityAuthentication\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\APP2\\source\\repos\\IdentityAuthentication-Master\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj",
+        "projectUniqueName": "C:\\Users\\APP2\\Desktop\\COde\\IdentityAuthentication\\IdentityAuthentication\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj",
         "projectName": "IdentityAuthentication-Master",
-        "projectPath": "C:\\Users\\APP2\\source\\repos\\IdentityAuthentication-Master\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj",
+        "projectPath": "C:\\Users\\APP2\\Desktop\\COde\\IdentityAuthentication\\IdentityAuthentication\\IdentityAuthentication-Master\\IdentityAuthentication-Master.csproj",
         "packagesPath": "C:\\Users\\APP2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\APP2\\source\\repos\\IdentityAuthentication-Master\\IdentityAuthentication-Master\\obj\\",
+        "outputPath": "C:\\Users\\APP2\\Desktop\\COde\\IdentityAuthentication\\IdentityAuthentication\\IdentityAuthentication-Master\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
