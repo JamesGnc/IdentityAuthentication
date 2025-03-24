@@ -1,5 +1,37 @@
 [
   {
+    "ContainingType": "IdentityAuthentication_Master.Controllers.IndentityIdName.IdentityController",
+    "Method": "GetGeraldData",
+    "RelativePath": "Identity",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserIdNum",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "IdentityAuthentication_Master.Models.ResponseResult",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "CheckInfo"
+  },
+  {
     "ContainingType": "IdentityAuthentication_Master.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

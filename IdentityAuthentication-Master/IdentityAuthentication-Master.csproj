@@ -8,18 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0-preview.2.25163.2" />
     <PackageReference Include="SqlSugarCore" Version="5.1.4.185" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.0.0" />
     <PackageReference Include="System.Diagnostics.Tools" Version="4.3.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\Tables\" />
-    <Folder Include="Models\DTO\" />
     <Folder Include="Models\Enum\" />
-    <Folder Include="Servies\" />
   </ItemGroup>
 
 </Project>

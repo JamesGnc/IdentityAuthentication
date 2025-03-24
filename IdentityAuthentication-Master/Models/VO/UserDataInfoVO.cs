@@ -2,7 +2,7 @@
 {
     public class UserDataInfoVO
     {
-        public string UserId { get; set; } = null!;
+        public string UserIdNum { get; set; } = null!;
         public string UserName { get; set; } = null!;
 
     }

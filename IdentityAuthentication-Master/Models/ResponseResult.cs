@@ -1,4 +1,6 @@
-﻿namespace IdentityAuthentication_Master.Models
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace IdentityAuthentication_Master.Models
 {
     public class ResponseResult<T>
     {
@@ -28,6 +30,37 @@
         public static ResponseResult<T> Failure(string message, int code = 1)
         {
             return new ResponseResult<T>(default!, code, message);
+        }
+    }
+
+    public class ResponseResult {
+        public int Code { get; set; }
+        public string? Message { get; set; }
+
+        public ResponseResult(int code, string message)
+        {
+            Code = code;
+            Message = message;
+        }
+
+        public static ResponseResult Success(string message = "Success")
+        {
+            return new ResponseResult(0, message);
+        }
+
+        public static ResponseResult NotFound(string message = "Data Not Found")
+        {
+            return new ResponseResult(0, message);
+        }
+
+        public static ResponseResult ParamInvalid(string message = "Param Invalid")
+        {
+            return new ResponseResult(0, message);
+        }
+
+        public static ResponseResult BadRequest(string message, int code = 0)
+        {
+            return new ResponseResult(code, message);
         }
     }
 
