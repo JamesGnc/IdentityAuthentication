@@ -28,7 +28,7 @@ namespace IdentityAuthentication_Master.Controllers.IndentityIdName
             public IActionResult GetGeraldData([FromBody] UserDataInfoVO param)
             {
                
-                //var successResult = ResponseResult<GeraldExp>.Success(item);
+                var successResult = ResponseResult<GeraldExp>.Success(item);
                 return Ok();
             }
 
