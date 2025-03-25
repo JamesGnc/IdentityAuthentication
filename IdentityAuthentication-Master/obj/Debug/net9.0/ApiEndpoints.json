@@ -1,26 +1,38 @@
 [
   {
-    "ContainingType": "IdentityAuthentication_Master.Controllers.IndentityIdName.IdentityController",
-    "Method": "GetGeraldData",
-    "RelativePath": "Identity",
-    "HttpMethod": "GET",
+    "ContainingType": "IdentityAuthentication_Master.Controllers.SqlConnection.CURDController",
+    "Method": "GetCarDataInfoInfo",
+    "RelativePath": "CURD",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserIdNum",
-        "Type": "System.String",
+        "Name": "id",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
-      },
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetAll"
+  },
+  {
+    "ContainingType": "IdentityAuthentication_Master.Controllers.IndentityIdName.IdentityController",
+    "Method": "VerifyIdentity",
+    "RelativePath": "Identity",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "UserName",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "param",
+        "Type": "IdentityAuthentication_Master.Models.VO.UserDataInfoVO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "IdentityAuthentication_Master.Models.ResponseResult",
+        "Type": "IdentityAuthentication_Master.Models.ResponseResult\u00601[[IdentityAuthentication_Master.Models.DTO.IdentityVerificationResultDTO, IdentityAuthentication-Master, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,7 +41,7 @@
         "StatusCode": 200
       }
     ],
-    "EndpointName": "CheckInfo"
+    "EndpointName": "VerifyIdentity"
   },
   {
     "ContainingType": "IdentityAuthentication_Master.Controllers.WeatherForecastController",

@@ -2,8 +2,8 @@
 {
     public class UserDataInfoVO
     {
-        public string UserIdNum { get; set; } = null!;
-        public string UserName { get; set; } = null!;
+        public string? IdCard { get; set; }
+        public string? Name { get; set; }
 
     }
 }

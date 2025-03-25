@@ -3,8 +3,6 @@ using IdentityAuthentication_Master.Models.DTO;
 using IdentityAuthentication_Master.Models.VO;
 using IdentityAuthentication_Master.Servies.IndentityService;
 using Microsoft.AspNetCore.Mvc;
-using SqlSugar;
-using Mapster;
 using System.ComponentModel;
 
 namespace IdentityAuthentication_Master.Controllers.IndentityIdName
@@ -21,21 +19,29 @@ namespace IdentityAuthentication_Master.Controllers.IndentityIdName
             _identityUserInfo = identityUserInfo;
         }
 
-        [HttpGet(Name = "CheckInfo")]
-        [Description("核实数据")]
-        public ResponseResult GetGeraldData([FromQuery] UserDataInfoVO param)
+        [HttpPost(Name = "VerifyIdentity")]
+        [Description("实名认证接口")]
+        public async Task<ResponseResult<IdentityVerificationResultDTO>> VerifyIdentity([FromBody] UserDataInfoVO param)
         {
-            if (param.UserName == null || param.UserIdNum == null)
+            if (string.IsNullOrWhiteSpace(param.Name) || string.IsNullOrWhiteSpace(param.IdCard))
             {
-                return ResponseResult.ParamInvalid();
+                return ResponseResult<IdentityVerificationResultDTO>.Failure(null!,"参数错误");
             }
 
-            var dto = param.Adapt<IndentityUserInfoParamDTO>();
-            var Resutlt = _identityUserInfo.IndentityUserInfo(dto);
-            if (Resutlt == null) { return ResponseResult.BadRequest("Request Fail"); }
-            return ResponseResult.Success();
-        }
+            try
+            {
+                var result = await _identityUserInfo.VerifyIdentityAsync(param.Name, param.IdCard);
+                return ResponseResult<IdentityVerificationResultDTO>.Success(result);
+            }
+            catch (HttpRequestException ex)
+            {
+                return ResponseResult<IdentityVerificationResultDTO>.Failure(null!, $"API请求失败: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                return ResponseResult<IdentityVerificationResultDTO>.Failure(null!, $"系统错误: {ex.Message}");
+            }
 
+        }
     }
 }
-
