@@ -19,7 +19,7 @@
   {
     "ContainingType": "IdentityAuthentication_Master.Controllers.IndentityIdName.IdentityController",
     "Method": "VerifyIdentity",
-    "RelativePath": "Identity",
+    "RelativePath": "Identity/VerifyIdentity",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -40,8 +40,33 @@
         ],
         "StatusCode": 200
       }
+    ]
+  },
+  {
+    "ContainingType": "IdentityAuthentication_Master.Controllers.IndentityIdName.IdentityController",
+    "Method": "VerifyIdentityBatch",
+    "RelativePath": "Identity/VerifyIdentityBatch",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paramsList",
+        "Type": "System.Collections.Generic.List\u00601[[IdentityAuthentication_Master.Models.VO.UserDataInfoVO, IdentityAuthentication-Master, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
     ],
-    "EndpointName": "VerifyIdentity"
+    "ReturnTypes": [
+      {
+        "Type": "IdentityAuthentication_Master.Models.ResponseResult\u00601[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "IdentityAuthentication_Master.Controllers.WeatherForecastController",

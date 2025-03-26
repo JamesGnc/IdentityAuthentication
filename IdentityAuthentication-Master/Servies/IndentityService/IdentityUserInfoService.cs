@@ -1,11 +1,8 @@
-﻿// Service 层
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Security.Cryptography;
-using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Text.Json;
 using IdentityAuthentication_Master.Models.DTO;
-using Microsoft.Extensions.Configuration;
 
 namespace IdentityAuthentication_Master.Servies.IndentityService
 {
@@ -14,7 +11,7 @@ namespace IdentityAuthentication_Master.Servies.IndentityService
         Task<IdentityVerificationResultDTO> VerifyIdentityAsync(string name, string idCard);
     }
 
-    public class IdentityUserInfoService : IIdentityUserInfoService
+    public class IdentityUserInfoServiceImpl : IIdentityUserInfoService
     {
         private readonly HttpClient _httpClient;
         private readonly string _secretId;
@@ -24,7 +21,7 @@ namespace IdentityAuthentication_Master.Servies.IndentityService
         private const string Action = "IdCardVerification";
         private const string Host = "faceid.tencentcloudapi.com";
 
-        public IdentityUserInfoService(IConfiguration configuration, IHttpClientFactory httpClientFactory)
+        public IdentityUserInfoServiceImpl(IConfiguration configuration, IHttpClientFactory httpClientFactory)
         {
             _secretId = configuration["SecretId"] ?? throw new ArgumentNullException("SecretId");
             _secretKey = configuration["SecretKey"] ?? throw new ArgumentNullException("SecretKey");
@@ -75,14 +72,6 @@ namespace IdentityAuthentication_Master.Servies.IndentityService
             return request;
         }
 
-        //private string GenerateAuthorizationHeader(string timestamp, HttpContent content)
-        //{
-        //    var canonicalRequest = BuildCanonicalRequest(content);
-        //    var stringToSign = BuildStringToSign(timestamp, canonicalRequest);
-        //    var signature = GenerateSignature(stringToSign);
-
-        //    return $"TC3-HMAC-SHA256 Credential={_secretId}/{GetCredentialScope(timestamp)}, SignedHeaders=content-type;host, Signature={signature}";
-        //}
 
         private string GenerateAuthorizationHeader(string timestamp, HttpContent content)
         {
@@ -104,14 +93,6 @@ namespace IdentityAuthentication_Master.Servies.IndentityService
             return $"POST\n/\n\ncontent-type:{contentType}\nhost:{Host}\n\ncontent-type;host\n{hashedPayload}";
         }
 
-        //private string BuildStringToSign(string timestamp, string canonicalRequest)
-        //{
-        //    var date = DateTimeOffset.FromUnixTimeSeconds(long.Parse(timestamp)).UtcDate.ToString("yyyy-MM-dd");
-        //    var credentialScope = $"{date}/{Service}/tc3_request";
-        //    var hashedCanonicalRequest = ComputeSha256Hash(canonicalRequest);
-
-        //    return $"TC3-HMAC-SHA256\n{timestamp}\n{credentialScope}\n{hashedCanonicalRequest}";
-        //}
 
         private string BuildStringToSign(string timestamp, string canonicalRequest)
         {
@@ -122,17 +103,6 @@ namespace IdentityAuthentication_Master.Servies.IndentityService
             return $"TC3-HMAC-SHA256\n{timestamp}\n{credentialScope}\n{hashedCanonicalRequest}";
         }
 
-        //private string GenerateSignature(string stringToSign)
-        //{
-        //    var date = DateTime.UtcNow.ToString("yyyy-MM-dd");
-        //    var secretKey = Encoding.UTF8.GetBytes("TC3" + _secretKey);
-        //    var secretDate = ComputeHmacSha256Hash(secretKey, Encoding.UTF8.GetBytes(date));
-        //    var secretService = ComputeHmacSha256Hash(secretDate, Encoding.UTF8.GetBytes(Service));
-        //    var secretSigning = ComputeHmacSha256Hash(secretService, Encoding.UTF8.GetBytes("tc3_request"));
-        //    var signatureBytes = ComputeHmacSha256Hash(secretSigning, Encoding.UTF8.GetBytes(stringToSign));
-
-        //    return BitConverter.ToString(signatureBytes).Replace("-", "").ToLower();
-        //}
 
         private string GenerateSignature(string stringToSign, string timestamp)
         {
@@ -151,8 +121,6 @@ namespace IdentityAuthentication_Master.Servies.IndentityService
         private static string GetCredentialScope(string timestamp)
         {
             var date = DateTimeOffset.FromUnixTimeSeconds(long.Parse(timestamp)).ToString("yyyy-MM-dd");
-
-            //var date = DateTimeOffset.FromUnixTimeSeconds(long.Parse(timestamp)).UtcDate.ToString("yyyy-MM-dd");
             return $"{date}/{Service}/tc3_request";
         }
 
