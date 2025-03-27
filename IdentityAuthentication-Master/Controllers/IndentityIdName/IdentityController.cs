@@ -127,7 +127,7 @@ namespace IdentityAuthentication_Master.Controllers.IndentityIdName
 
                 if (dbResult != null && dbResult.Name == param.Name)
                 {
-                    // 数据一致，继续
+                    // 数据一致，继续 下一部
                     continue;
                 }
                 else
