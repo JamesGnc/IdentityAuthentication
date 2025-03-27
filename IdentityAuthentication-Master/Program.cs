@@ -1,6 +1,7 @@
-using IdentityAuthentication_Master.Models.Tables;
+ï»¿using IdentityAuthentication_Master.Models.Tables;
 using IdentityAuthentication_Master.Servies.IndentityService;
 using SqlSugar;
+using System.Security.Cryptography;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IdentityUserInfoServiceImpl>();
 builder.Services.AddScoped<IdentityUserInfoMockServiceImpl>();
 
-// Ìí¼Ó·şÎñµ½ÈİÆ÷  
+// æ·»åŠ æœåŠ¡åˆ°å®¹å™¨  
 builder.Services.AddSingleton<SqlSugarClient>(provider =>
 {
     var configuration = provider.GetRequiredService<IConfiguration>();
@@ -23,7 +24,7 @@ builder.Services.AddSingleton<SqlSugarClient>(provider =>
     var sqlSugarClient = new SqlSugarClient(new ConnectionConfig()
     {
         ConnectionString = connectionString,
-        DbType = DbType.MySql, // »òÕß DbType.SqlServer£¬¸ù¾İÄúµÄÊı¾İ¿âÀàĞÍ
+        DbType = DbType.MySql, // æˆ–è€… DbType.SqlServerï¼Œæ ¹æ®æ‚¨çš„æ•°æ®åº“ç±»å‹
         IsAutoCloseConnection = true
     },
     db =>
@@ -34,12 +35,27 @@ builder.Services.AddSingleton<SqlSugarClient>(provider =>
         };
     });
 
-    // ×Ô¶¯´´½¨±í
+    // è‡ªåŠ¨åˆ›å»ºè¡¨
     sqlSugarClient.CodeFirst.SetStringDefaultLength(200)
-                            .InitTables(typeof(UserIdentityInfos)); // ÕâÀï¿ÉÒÔÌí¼ÓÄúµÄËùÓĞÊµÌåÀà
+                            .InitTables(typeof(UserIdentityInfos)); // è¿™é‡Œå¯ä»¥æ·»åŠ æ‚¨çš„æ‰€æœ‰å®ä½“ç±»
 
     return sqlSugarClient;
 });
+
+// ç”ŸæˆKye Iv
+//using (Aes aes = Aes.Create())
+//{
+//    aes.KeySize = 256; // 256-bit å¯†é’¥
+//    aes.BlockSize = 128; // 128-bit å—å¤§å°
+//    aes.GenerateKey();
+//    aes.GenerateIV();
+
+//    string keyBase64 = Convert.ToBase64String(aes.Key);
+//    string ivBase64 = Convert.ToBase64String(aes.IV);
+
+//    Console.WriteLine("ğŸ”‘ AES Key: " + keyBase64);
+//    Console.WriteLine("ğŸ› ï¸ AES IV: " + ivBase64);
+//}
 
 var app = builder.Build();
 
