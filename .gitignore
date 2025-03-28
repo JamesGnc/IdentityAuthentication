@@ -3,6 +3,8 @@
 /target/
 .IdentityAuthentication-Master/bin/
 .IdentityAuthentication-Master/obj/
+bin/
+obj/
 .vs/
 .classpath
 .project
