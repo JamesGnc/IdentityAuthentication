@@ -27,6 +27,7 @@
 *.tar  
 *.zip  
 *.via
+*.db
 *.tmp
 *.err
 # OS generated files #  
