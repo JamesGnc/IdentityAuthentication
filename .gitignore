@@ -6,6 +6,9 @@
 bin/
 obj/
 .vs/
+**/bin/
+**/obj/
+.db
 .classpath
 .project
 .settings     
