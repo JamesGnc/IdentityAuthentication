@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IdentityAuthentication-Master")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34adaf54c1436b4cbb465b49831243775d2ec18b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c914da8d78e8dd8abaa21f9d2606f56df09404a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("IdentityAuthentication-Master")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IdentityAuthentication-Master")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
